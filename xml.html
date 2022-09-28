@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var request=new XMLHttpRequest()
+        request.open('GET','https://restcountries.com/v3.1/all',true)
+        request.send()
+        request.onload=function()//function is created when the bnrowser loads
+        {
+           // console.log(request.response)
+            var data=JSON.parse(request.response)//the var data contains the information given by server and is converted from unreadable format to readable format
+            
+          //  var data=JSON.parse(this.response)
+            
+            console.log(data)
+            
+            for(i=0;i<data.length;i++)
+            {
+                console.log("Flag Url => ",data[i].flags.png)
+                console.log("Country Name => ",data[i].name.common)
+                console.log("Region Name => ",data[i].region)
+                console.log("Sub Region => ",data[i].subregion)
+                console.log("Polulation => ",data[i].population)
+            }
+        }
+            
+           
+              
+
+        
+      
+
+
+    </script>
+</body>
+</html> 
